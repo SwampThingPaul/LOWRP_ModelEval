@@ -33,7 +33,7 @@ plot.path=paste0(wd,"/Plots/")
 export.path=paste0(wd,"/Export/")
 
 plot.figs=list.files(plot.path,full.names=T)
-slides.figs=paste0(wd,"/slides/plots")
+slides.figs=paste0(wd,"/slides/Plots")
 file.copy(plot.figs,slides.figs,overwrite=T,recursive=T)
 ```
 
@@ -131,7 +131,7 @@ name: RegQ
 
 ```{r,out.width="100%",fig.align="center",fig.cap="Regulatory discharge from Lake Okeechobee" }
 
-knitr::include_graphics("./plots/AvgFloodControl.png")
+knitr::include_graphics("./Plots/AvgFloodControl.png")
 ```
 
 
@@ -143,7 +143,7 @@ name: LOKStage
 
 ```{r,out.width="100%",fig.align="center",fig.cap="Stage duration curves for 1BWR and ASR alternatives relative to ECB and FWO baseline conditions." }
 
-knitr::include_graphics("./plots/LOK_stage_curve.png")
+knitr::include_graphics("./Plots/LOK_stage_curve.png")
 ```
 
 ---
@@ -153,7 +153,7 @@ name: LOKStage
 
 ```{r,out.width="55%",fig.align="center"}
 
-knitr::include_graphics("./plots/LOK_stg.png")
+knitr::include_graphics("./Plots/LOK_stg.png")
 ```
 
 ---
@@ -163,7 +163,7 @@ name: LOKStage
 
 ```{r,out.width="100%",fig.align="center"}
 
-knitr::include_graphics("./plots/LOK_highstg_events.png")
+knitr::include_graphics("./Plots/LOK_highstg_events.png")
 ```
 
 ---
@@ -173,7 +173,7 @@ name: LOKStage
 
 ```{r,out.width="100%",fig.align="center"}
 
-knitr::include_graphics("./plots/LOK_OldScore_total_parsed.png")
+knitr::include_graphics("./Plots/LOK_OldScore_total_parsed.png")
 ```
 
 ---
@@ -183,7 +183,7 @@ name: LOKStage
 
 ```{r,out.width="100%",fig.align="center",fig.cap="Normal and recovery stage envelope timeline for each alternative."}
 
-knitr::include_graphics("./plots/LOK_NewEnv.png")
+knitr::include_graphics("./Plots/LOK_NewEnv.png")
 ```
 
 ---
@@ -193,7 +193,7 @@ name: LOKStage
 
 ```{r,out.width="100%",fig.align="center"}
 
-knitr::include_graphics("./plots/LOK_NewEnvScore_AllYrs.png")
+knitr::include_graphics("./Plots/LOK_NewEnvScore_AllYrs.png")
 ```
 
 ---
@@ -203,7 +203,7 @@ name: LOKStage
 
 ```{r,out.width="100%",fig.align="center"}
 
-knitr::include_graphics("./plots/LOK_NewEnvScore_MaySep.png")
+knitr::include_graphics("./Plots/LOK_NewEnvScore_MaySep.png")
 ```
 
 ---
@@ -213,7 +213,7 @@ name: LOKStage
 
 ```{r,out.width="100%",fig.align="center"}
 
-knitr::include_graphics("./plots/LOK_NewEnvScore_RecYrs.png")
+knitr::include_graphics("./Plots/LOK_NewEnvScore_RecYrs.png")
 ```
 
 ---
@@ -223,7 +223,7 @@ name: LakeQEstuary
 
 ```{r,out.width="100%",fig.align="center",fig.cap="Stressful and damaging Lake discharges to CRE and SLE." }
 
-knitr::include_graphics("./plots/Lakedischarge_Annualmean.png")
+knitr::include_graphics("./Plots/Lakedischarge_Annualmean.png")
 ```
 
 ---
@@ -233,7 +233,7 @@ name: EstuaryQ
 
 ```{r,out.width="75%",fig.align="center",fig.cap="Daily discharge distribution during POS for each alternative and Estuary."}
 
-knitr::include_graphics("./plots/Estuary_DaQDesnity.png")
+knitr::include_graphics("./Plots/Estuary_DaQDesnity.png")
 ```
 
 ---
@@ -243,7 +243,7 @@ name: CRE MFL
 
 ```{r,out.width="60%",fig.align="center",fig.cap="Caloosahatchee MFL Evaluation for each alternative."}
 
-knitr::include_graphics("./plots/CRE_MFL_Alt_all.png")
+knitr::include_graphics("./Plots/CRE_MFL_Alt_all.png")
 ```
 
 ---
@@ -253,7 +253,7 @@ name: CRE MFL
 
 ```{r,out.width="100%",fig.align="center",fig.cap="Caloosahatchee MFL percent difference relative to FWO."}
 
-knitr::include_graphics("./plots/CREMFL_Alts.png")
+knitr::include_graphics("./Plots/CREMFL_Alts.png")
 ```
 
 ---
@@ -263,7 +263,7 @@ name: CRE MFL
 
 ```{r,out.width="100%",fig.align="center",fig.cap="Caloosahatchee salinity envelope evaluation (2007 & 2020 PMs)"}
 
-knitr::include_graphics("./plots/RECOVER_CRE_SalEnv_all_2.png")
+knitr::include_graphics("./Plots/RECOVER_CRE_SalEnv_all_2.png")
 ```
 
 ---
@@ -273,7 +273,7 @@ name: CRE MFL
 
 ```{r,out.width="100%",fig.align="center",fig.cap="Caloosahatchee salinity envelope evaluation relative to FWO."}
 
-knitr::include_graphics("./plots/RECOVER_CRE_SalEnv_FWO.png")
+knitr::include_graphics("./Plots/RECOVER_CRE_SalEnv_FWO.png")
 ```
 
 
@@ -284,7 +284,7 @@ name: SLE MFL
 
 ```{r,out.width="100%",fig.align="center",fig.cap="St Lucie salinity envelope evaluation (2007 & 2020 PMs)"}
 
-knitr::include_graphics("./plots/RECOVER_SLE_SalEnv_all_2.png")
+knitr::include_graphics("./Plots/RECOVER_SLE_SalEnv_all_2.png")
 ```
 
 ---
@@ -294,5 +294,5 @@ name: CRE MFL
 
 ```{r,out.width="100%",fig.align="center",fig.cap="St Lucie salinity envelope evaluation relative to FWO."}
 
-knitr::include_graphics("./plots/RECOVER_SLE_SalEnv_FWO.png")
+knitr::include_graphics("./Plots/RECOVER_SLE_SalEnv_FWO.png")
 ```
