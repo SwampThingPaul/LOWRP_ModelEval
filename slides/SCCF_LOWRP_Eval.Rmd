@@ -90,7 +90,7 @@ bsplus::bs_button(
     button_type = "primary",
     button_size = "small") %>%
     htmltools::a(
-      href = "https://sccf-tech.github.io/slides/LOWRP_ModelEval/slides/SCCF_LOWRP_Eval.pdf"
+      href = "https://sccf-tech.github.io/LOWRP_ModelEval/slides/SCCF_LOWRP_Eval.pdf"
       )
 ```
 ]
