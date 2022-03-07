@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>SCCF LOWRP</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Paul Julian" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/tabwid/tabwid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs/WhiteBlue.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;  &lt;/span&gt;
+&lt;/div&gt;
+
+---
+name: title
+class: left, middle
+
+### Lake Okeechobee Watershed Restoration Project
+
+.pull-left[
+
+
+*Sanibel-Captiva Conservation Foundation*
+
+*Conservancy of Southwest Florida*
+
+**DRAFT** - March 07, 2022
+
+]
+&lt;!-- this ends up being the title slide since seal = FALSE--&gt;
+
+.pull-right[
+&lt;img src="./Plots/SCCF Logo knockout_c.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="./Plots/ConSWFL.jpeg" width="40%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+
+.footnote[
+Paul Julian PhD&lt;br&gt;[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>](mailto: pjulian@sccf.org) .small[pjulian@sccf.org]
+
+.small[Use cursor keys for navigation, press .red["O"] for a slide .red[O]verview]
+
+<a href="https://sccf-tech.github.io/slides/LOWRP_ModelEval/slides/SCCF_LOWRP_Eval.pdf">
+<button class="btn btn-primary btn-sm">Download PDF Version</button>
+</a>
+]
+
+---
+name: alternatives
+
+### General Description
+
+
+
+&lt;template id="d47dd49c-e017-4e69-b560-45555ddb0e1e"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-d2a2cc44{border-collapse:collapse;}.cl-d29a1fc2{font-family:'Times New Roman';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d29a1fc3{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d29a46aa{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:0.1pt;padding-top:0.1pt;padding-left:0.1pt;padding-right:0.1pt;line-height: 1;background-color:transparent;}.cl-d29a6da6{width:360pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d29a6da7{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d29a6da8{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d29a6da9{width:360pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d29a6daa{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d29a6dab{width:360pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-d2a2cc44'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-d29a6daa"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc2"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-d29a6dab"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc2"&gt;Description&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-d29a6da7"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc3"&gt;ECB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-d29a6da6"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc3"&gt;KRR partial complete; HHD under construction; C44 &amp;amp; C43 under construction; LORS08 schedule (cira 2012)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-d29a6da7"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc3"&gt;FWO&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-d29a6da6"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc3"&gt;KRR &amp;amp; HHD complete; C44, C43 and C23/24 complete; CEPP feautres operational; LORS08 schedule (cira 2025)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-d29a6da7"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc3"&gt;1BWR&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-d29a6da6"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc3"&gt;Wetland Attenuation Feature - 43000 acres; 80 ASR wells; wetland restoration; LORS08 (cira 2025)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-d29a6da8"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc3"&gt;ASR&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-d29a6da9"&gt;&lt;p class="cl-d29a46aa"&gt;&lt;span class="cl-d29a1fc3"&gt;WAF removed; 55 ASR wells; wetland restoration; LORS08 (cira 2025)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="b154054d-2a5e-4e05-9422-ce764b082c70"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("b154054d-2a5e-4e05-9422-ce764b082c70");
+var template = document.getElementById("d47dd49c-e017-4e69-b560-45555ddb0e1e");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+* RSMBN modeling Period of Simulation - Jan 1, 1965 to Dec 31, 2005
+
+* Performance Measures
+  * Both 2007 and 2020 Lake Okeechobee Stage and Northern Estuaries Salinity Envelopes were used to evaluate LOWRP alternatives.
+---
+name: RegQ
+
+### Regulatory Discharge
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/AvgFloodControl.png" alt="Regulatory discharge from Lake Okeechobee" width="100%" /&gt;
+&lt;p class="caption"&gt;Regulatory discharge from Lake Okeechobee&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+---
+name: LOKStage
+
+### LOK Stage Duration Curves
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/LOK_stage_curve.png" alt="Stage duration curves for 1BWR and ASR alternatives relative to ECB and FWO baseline conditions." width="100%" /&gt;
+&lt;p class="caption"&gt;Stage duration curves for 1BWR and ASR alternatives relative to ECB and FWO baseline conditions.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: LOKStage
+
+### LOK Stage Conditions
+
+&lt;img src="./plots/LOK_stg.png" width="55%" style="display: block; margin: auto;" /&gt;
+
+---
+name: LOKStage
+
+### LOK - High Stage Event and Duration
+
+&lt;img src="./plots/LOK_highstg_events.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+name: LOKStage
+
+### 2007 RECOVER PM
+
+&lt;img src="./plots/LOK_OldScore_total_parsed.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+name: LOKStage
+
+### 2020 RECOVER PM
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/LOK_NewEnv.png" alt="Normal and recovery stage envelope timeline for each alternative." width="100%" /&gt;
+&lt;p class="caption"&gt;Normal and recovery stage envelope timeline for each alternative.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: LOKStage
+
+### 2020 RECOVER PM
+
+&lt;img src="./plots/LOK_NewEnvScore_AllYrs.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+name: LOKStage
+
+### 2020 RECOVER PM
+
+&lt;img src="./plots/LOK_NewEnvScore_MaySep.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+name: LOKStage
+
+### 2020 RECOVER PM
+
+&lt;img src="./plots/LOK_NewEnvScore_RecYrs.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+name: LakeQEstuary
+
+### Regulatory Discharge
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/Lakedischarge_Annualmean.png" alt="Stressful and damaging Lake discharges to CRE and SLE." width="100%" /&gt;
+&lt;p class="caption"&gt;Stressful and damaging Lake discharges to CRE and SLE.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: EstuaryQ
+
+### Daily Discharge
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/Estuary_DaQDesnity.png" alt="Daily discharge distribution during POS for each alternative and Estuary." width="75%" /&gt;
+&lt;p class="caption"&gt;Daily discharge distribution during POS for each alternative and Estuary.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: CRE MFL
+
+### Caloosahatchee MFL
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/CRE_MFL_Alt_all.png" alt="Caloosahatchee MFL Evaluation for each alternative." width="60%" /&gt;
+&lt;p class="caption"&gt;Caloosahatchee MFL Evaluation for each alternative.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: CRE MFL
+
+### Caloosahatchee MFL
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/CREMFL_Alts.png" alt="Caloosahatchee MFL percent difference relative to FWO." width="100%" /&gt;
+&lt;p class="caption"&gt;Caloosahatchee MFL percent difference relative to FWO.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: CRE MFL
+
+### Salinity Envelope
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/RECOVER_CRE_SalEnv_all_2.png" alt="Caloosahatchee salinity envelope evaluation (2007 &amp;amp; 2020 PMs)" width="100%" /&gt;
+&lt;p class="caption"&gt;Caloosahatchee salinity envelope evaluation (2007 &amp; 2020 PMs)&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: CRE MFL
+
+### Salinity Envelope
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/RECOVER_CRE_SalEnv_FWO.png" alt="Caloosahatchee salinity envelope evaluation relative to FWO." width="100%" /&gt;
+&lt;p class="caption"&gt;Caloosahatchee salinity envelope evaluation relative to FWO.&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+name: SLE MFL
+
+### Salinity Envelope
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/RECOVER_SLE_SalEnv_all_2.png" alt="St Lucie salinity envelope evaluation (2007 &amp;amp; 2020 PMs)" width="100%" /&gt;
+&lt;p class="caption"&gt;St Lucie salinity envelope evaluation (2007 &amp; 2020 PMs)&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: CRE MFL
+
+### Salinity Envelope
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./plots/RECOVER_SLE_SalEnv_FWO.png" alt="St Lucie salinity envelope evaluation relative to FWO." width="100%" /&gt;
+&lt;p class="caption"&gt;St Lucie salinity envelope evaluation relative to FWO.&lt;/p&gt;
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
