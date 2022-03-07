@@ -259,7 +259,7 @@ knitr::include_graphics("./Plots/CREMFL_Alts.png")
 ---
 name: CRE MFL
 
-### Salinity Envelope
+### CRE - Salinity Envelope
 
 ```{r,out.width="100%",fig.align="center",fig.cap="Caloosahatchee salinity envelope evaluation (2007 & 2020 PMs)"}
 
@@ -269,7 +269,7 @@ knitr::include_graphics("./Plots/RECOVER_CRE_SalEnv_all_2.png")
 ---
 name: CRE MFL
 
-### Salinity Envelope
+### CRE - Salinity Envelope
 
 ```{r,out.width="100%",fig.align="center",fig.cap="Caloosahatchee salinity envelope evaluation relative to FWO."}
 
@@ -278,9 +278,9 @@ knitr::include_graphics("./Plots/RECOVER_CRE_SalEnv_FWO.png")
 
 
 ---
-name: SLE MFL
+name: SLE Sal
 
-### Salinity Envelope
+### SLE - Salinity Envelope
 
 ```{r,out.width="100%",fig.align="center",fig.cap="St Lucie salinity envelope evaluation (2007 & 2020 PMs)"}
 
@@ -288,9 +288,9 @@ knitr::include_graphics("./Plots/RECOVER_SLE_SalEnv_all_2.png")
 ```
 
 ---
-name: CRE MFL
+name: SLE Sal
 
-### Salinity Envelope
+### SLE - Salinity Envelope
 
 ```{r,out.width="100%",fig.align="center",fig.cap="St Lucie salinity envelope evaluation relative to FWO."}
 
