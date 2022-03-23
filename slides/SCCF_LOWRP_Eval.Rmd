@@ -134,6 +134,15 @@ name: RegQ
 knitr::include_graphics("./Plots/AvgFloodControl.png")
 ```
 
+---
+name: LOKStage
+
+### LOK Daily Stage Distribution
+
+```{r,out.width="60%",fig.align="center"}
+
+knitr::include_graphics("./Plots/LOK_stg_hist.png")
+```
 
 
 ---
@@ -144,6 +153,16 @@ name: LOKStage
 ```{r,out.width="100%",fig.align="center",fig.cap="Stage duration curves for 1BWR and ASR alternatives relative to ECB and FWO baseline conditions." }
 
 knitr::include_graphics("./Plots/LOK_stage_curve.png")
+```
+
+---
+name: LOKStage
+
+### LOK Stage Duration Curves
+
+```{r,out.width="60%",fig.align="center"}
+
+knitr::include_graphics("./Plots/LOK_stg_duration_chunk.png")
 ```
 
 ---

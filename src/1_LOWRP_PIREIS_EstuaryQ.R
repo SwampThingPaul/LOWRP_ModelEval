@@ -1249,7 +1249,80 @@ mtext(side=2,line=0.5,"Percent of Time",outer=T)
 mtext(side=1,line=4,"Alternative",outer=F)
 dev.off()
 
+# days.POS2=ddply(lakeO.stage,"Alt",summarise,N.days=N.obs(STAGE),
+#                 stg.10=(sum(STAGE>10&STAGE<11,na.rm=T)/N.days)*100,
+#                 stg.11=(sum(STAGE>11&STAGE<12,na.rm=T)/N.days)*100,
+#                 stg.12=(sum(STAGE>12&STAGE<13,na.rm=T)/N.days)*100,
+#                 stg.13=(sum(STAGE>13&STAGE<14,na.rm=T)/N.days)*100,
+#                 stg.14=(sum(STAGE>14&STAGE<15,na.rm=T)/N.days)*100,
+#                 stg.15=(sum(STAGE>15&STAGE<16,na.rm=T)/N.days)*100,
+#                 stg.16=(sum(STAGE>16&STAGE<17,na.rm=T)/N.days)*100,
+#                 stg.17=(sum(STAGE>17&STAGE<18,na.rm=T)/N.days)*100,
+#                 stg.18=(sum(STAGE>18,na.rm=T)/N.days)*100
+#                 )
+days.POS2=ddply(lakeO.stage,"Alt",summarise,N.days=N.obs(STAGE),
+                stg.10=(sum(STAGE>10,na.rm=T)/N.days)*100,
+                stg.11=(sum(STAGE>11,na.rm=T)/N.days)*100,
+                stg.12=(sum(STAGE>12,na.rm=T)/N.days)*100,
+                stg.13=(sum(STAGE>13,na.rm=T)/N.days)*100,
+                stg.14=(sum(STAGE>14,na.rm=T)/N.days)*100,
+                stg.15=(sum(STAGE>15,na.rm=T)/N.days)*100,
+                stg.16=(sum(STAGE>16,na.rm=T)/N.days)*100,
+                stg.17=(sum(STAGE>17,na.rm=T)/N.days)*100,
+                stg.18=(sum(STAGE>18,na.rm=T)/N.days)*100
+)
 
+barplot(t(subset(days.POS2,Alt=="FWO")[,3:ncol(days.POS2)]),beside=T,horiz = T)
+barplot(t(subset(days.POS2,Alt=="ASR")[,3:ncol(days.POS2)]),beside=T,horiz = T)
+hist(subset(lakeO.stage,Alt=="FWO")$STAGE,breaks=seq(8,19,1))
+x=hist(subset(lakeO.stage,Alt=="ASR")$STAGE,breaks=seq(8,19,1))
+text(x$mids,x$counts,format(round((x$counts/14975)*100,1)),pos=3,offset=0.1)
+
+# png(filename=paste0(plot.path,"LOK_stg_hist.png"),width=5,height=5.5,units="in",res=200,type="windows",bg="white")
+par(family="serif",mar=c(1,2,0.5,1),oma=c(3,2,1,1),lwd=0.1);
+layout(matrix(1:4,4,1,byrow=F))
+
+ylim.val=c(0,30);by.y=10;ymaj=seq(ylim.val[1],ylim.val[2],by.y);ymin=seq(ylim.val[1],ylim.val[2],by.y/2)
+xlim.val=c(8,19);by.x=1;xmaj=seq(xlim.val[1],xlim.val[2],by.x);xmin=seq(xlim.val[1],xlim.val[2],by.x/2)
+for(i in 1:length(alts)){
+x=hist(subset(lakeO.stage,Alt==alts[i])$STAGE,xaxs="i",yaxs="i",
+       breaks=seq(8,19,1),ylim=(ylim.val/100)*14975,xlim=xlim.val,
+       axes=F,ann=F,col=adjustcolor(cols.alts[i],0.5))
+text(x$mids,x$counts,format(round((x$counts/14975)*100,1)),pos=3,offset=0.2)
+if(i==4){axis_fun(1,xmaj,xmaj,xmaj,line=-0.5)}else{axis_fun(1,xmaj,xmaj,NA)}
+axis_fun(2,(ymaj/100)*14975,(ymin/100)*14975,ymaj)
+box(lwd=1)
+mtext(side=3,adj=0,line=-1.25,paste(" Alt: ",alts[i]))
+}
+mtext(side=2,outer=T,line=0.5,'Percent of Time')
+mtext(side=1,line=2,"Stage (Ft, NGVD29)")
+dev.off()
+
+# png(filename=paste0(plot.path,"LOK_stg_duration_chunk.png"),width=5,height=5.5,units="in",res=200,type="windows",bg="white")
+par(family="serif",mar=c(1,2,0.5,1),oma=c(3,2,1,1),lwd=0.1);
+layout(matrix(1:4,4,1,byrow=F))
+
+ylim.val=c(10,18);by.y=1;ymaj=seq(ylim.val[1],ylim.val[2],by.y);ymin=seq(ylim.val[1],ylim.val[2],by.y/2)
+xlim.val=c(0,110);by.x=20;xmaj=seq(xlim.val[1],xlim.val[2],by.x);xmin=seq(xlim.val[1],xlim.val[2],by.x/2)
+cols.rmp=colorRampPalette(c("darkseagreen3","darkolivegreen3","indianred1"))(9)
+for(i in 1:length(alts)){
+  x=barplot(t(subset(days.POS2,Alt==alts[i])[,3:ncol(days.POS2)]),
+          beside=T,horiz = T,xlim=xlim.val,col=cols.rmp,
+          axes=F,names.arg=NA)
+  
+  text(t(subset(days.POS2,Alt==alts[i])[,3:ncol(days.POS2)]),x,
+       format(round(t(subset(days.POS2,Alt==alts[i])[,3:ncol(days.POS2)]),1)),
+       pos=4,offset=0.2)
+  if(i==4){axis_fun(1,xmaj,xmin,xmaj,line=-0.5)}else{axis_fun(1,xmaj,xmin,NA)}
+  #axis_fun(2,x,x,paste(">",10:18))
+    axis_fun(2,x,x,ymaj)
+  box(lwd=1)
+  mtext(side=3,adj=1,line=-1.25,paste("Alt:",alts[i]," "))
+}
+
+mtext(side=1,line=2,'Percent of Time \u2265 Stage Elevation')
+mtext(side=2,outer=T,line=0.5,"Stage (Ft, NGVD29)")
+dev.off()
 # Old RECOVER Stage Envelope ----------------------------------------------
 # stg.env.vals=data.frame(
 #   month=c(sort(rep(1:12,2)),12),
@@ -1789,3 +1862,60 @@ for(i in 1:length(xlabs)){
 mtext(side=1,outer=T,line=3,"Alternative")
 
 dev.off()
+
+
+# Return Interval ---------------------------------------------------------
+## https://rpubs.com/cassiorampinelli/528388
+library(lmom)
+recur.fun=function(x){
+  #Sorting data by decreasing order
+  sorted.values<-sort(x,decreasing=T)
+  
+  #Computing the empirical probabilities
+  # p<-(c(1:length(sorted.values)))/(length(sorted.values)+1)
+  # using ppoints
+  # function (n, a = if (n <= 10) 3/8 else 1/2) 
+  # {
+  #   if (length(n) > 1L) 
+  #     n <- length(n)
+  #   if (n > 0) 
+  #     (1L:n - a)/(n + 1 - 2 * a)
+  #   else numeric()
+  # }
+  p<-ppoints(sorted.values)
+  
+  #Computing the empirical recurrence time
+  tr<-1/p
+  
+  #Estimating the parameters for Gumbel distribution
+  fit<-samlmu(x)
+  para<-pelgum(fit)
+  para
+  
+  #Estimating the parameters for Log Pearson type 3 distribution
+  para3<-pelpe3(fit)
+  para3
+  
+  
+  rslt=data.frame(dat.val=sorted.values,
+                  emp.rec.tim=tr,
+                  gumbel=1/(1-cdfgum(sorted.values,para)),
+                  LP3=1/(1-cdfpe3(sorted.values,para3)))
+  
+  return(rslt)  
+}
+
+recur.ECB=recur.fun(subset(ann.peak,Alt==alts[1])$max.stg)
+recur.FWO=recur.fun(subset(ann.peak,Alt==alts[2])$max.stg)
+recur.ASR=recur.fun(subset(ann.peak,Alt==alts[4])$max.stg)
+
+
+min(subset(recur.ECB,dat.val>=17)$LP3,na.rm=T)
+min(subset(recur.FWO,dat.val>=17)$LP3,na.rm=T)
+min(subset(recur.ASR,dat.val>=17)$LP3,na.rm=T)
+
+min(subset(recur.FWO,dat.val>=16)$LP3,na.rm=T)
+min(subset(recur.ASR,dat.val>=16)$LP3,na.rm=T)
+
+min(subset(recur.FWO,dat.val>=16)$gumbel,na.rm=T)
+min(subset(recur.ASR,dat.val>=16)$gumbel,na.rm=T)
